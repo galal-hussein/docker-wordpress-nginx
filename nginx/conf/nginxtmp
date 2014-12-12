@@ -1,0 +1,30 @@
+
+st, $containers := groupBy $ "Env.VIRTUAL_HOST" }}
+upstream {{ $host }} {
+
+{{ range $index, $value := $containers }}
+    {{ with $address := index $value.Addresses 0 }}
+    server {{ $address.IP }}:{{ $address.Port }};
+    {{ end }}
+{{ end }}
+
+}
+
+server {
+    #ssl_certificate /etc/nginx/certs/demo.pem;
+    #ssl_certificate_key /etc/nginx/certs/demo.key;
+
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+    server_name {{ $host }};
+    location / {
+                try_files $uri $uri/ =404;
+        }
+        location ~ \.php$ {
+        	fastcgi_pass http://{{ $host }};
+                fastcgi_index index.php;
+                include fastcgi_params;
+        }
+
+}
+{{ end }}
