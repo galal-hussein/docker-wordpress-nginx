@@ -19,11 +19,11 @@ To start a wordpress application build the images and run the stack from the top
 #git clone https://github.com/galal-hussein/Docker-Wordpress-Nginx.git
 #cd Docker-Wordpress-Nginx/mysql
 #docker build -t husseingalal/mysql .
-#cd ../fpm```
+#cd ../fpm
 #docker build -t husseingalal/phpfpm .
-#cd ../downloader```
+#cd ../downloader
 #docker build -t husseingalal/downloader .
-#cd ../nginx```
+#cd ../nginx
 #docker build -t husseingalal/nginx .
 ```
 
