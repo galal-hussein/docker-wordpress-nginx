@@ -28,3 +28,7 @@ docker run -d --name app2 --volumes-from downloader --link mysql:db husseingalal
 ###Nginx container:
 
 ```docker run -d -p 80:80 --name nginx --volumes-from downloader --link app1:app1 --link app2:app2 husseingalal/nginx```
+
+The Website will be accessible from port 80.
+
+``` http://127.0.0.1/
