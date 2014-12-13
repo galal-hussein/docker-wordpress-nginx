@@ -36,8 +36,8 @@ To start a wordpress application build the images and run the stack from the top
 
 ###Application server containers:
 
-```#docker run -d --name app1 --volumes-from downloader --link mysql:db husseingalal/phpfpm
-#docker run -d --name app2 --volumes-from downloader --link mysql:db husseingalal/phpfpm```
+```#docker run -d --name app1 --volumes-from downloader --link mysql:db husseingalal/phpfpm```
+```#docker run -d --name app2 --volumes-from downloader --link mysql:db husseingalal/phpfpm```
 
 ###Nginx container:
 
