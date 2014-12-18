@@ -1,0 +1,27 @@
+nginx:
+  build: nginx/
+  ports:
+	- "80:80"
+  volumes_from:
+	- downloader
+  links:
+	- app1:app1
+	- app2:app2
+app1:
+  build: fpm/
+  volumes_from:
+	- downloader
+  links:
+	- mysql:db
+app2:
+  image: husseingalal/phpfpm
+  volumes_from:
+	- downloader
+  links:
+	- mysql:db
+mysql:
+  build: mysql/
+
+downloader:
+  build: downloader/
+
