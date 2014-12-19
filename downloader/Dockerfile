@@ -9,4 +9,3 @@ VOLUME [ "/var/www/app" ]
 WORKDIR /var/www/app
 
 ENTRYPOINT ["/bin/bash","/run.sh"]
-
