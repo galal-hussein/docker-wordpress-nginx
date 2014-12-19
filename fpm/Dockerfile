@@ -10,11 +10,10 @@ RUN apt-get install -yqq php5-fpm php5-mysql
 # Adding the configuration files
 ADD conf/www.conf /etc/php5/fpm/pool.d/www.conf
 ADD conf/php-fpm.conf /etc/php5/fpm/php-fpm.conf
-
+VOLUME /var/www/app
 # Add the run script to run the services and configure db
 ADD run.sh /run.sh
 
-VOLUME /var/www/app
 
 # Expose the port 9000 
 EXPOSE 9000
