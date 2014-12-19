@@ -47,3 +47,12 @@ To start a wordpress application build the images and run the stack from the top
 The Website will be accessible from port 80.
 
 ``` http://127.0.0.1/ ```
+
+##Docker Orchestration Using Fig
+
+Use fig to build and run the containers automatically
+
+```
+# cd Docker-Wordpress-Nginx/
+# fig up -d
+```
