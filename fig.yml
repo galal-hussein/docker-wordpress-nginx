@@ -1,27 +1,25 @@
-nginx:
-  build: nginx/
-  ports:
-	- "80:80"
-  volumes_from:
-	- downloader
-  links:
-	- app1:app1
-	- app2:app2
 app1:
-  build: fpm/
-  volumes_from:
-	- downloader
-  links:
-	- mysql:db
+ build: ./fpm/ 
+ volumes_from:
+    - downloader
+ links:
+    - mysql:db
 app2:
-  image: husseingalal/phpfpm
+  image: dockerwordpress_app1 
   volumes_from:
-	- downloader
+    - downloader
   links:
-	- mysql:db
-mysql:
-  build: mysql/
-
+    - mysql:db
+nginx:
+  build: ./nginx
+  ports:
+    - "80:80"
+  volumes_from:
+    - downloader
+  links:
+    - app1:app1
+    - app2:app2
 downloader:
-  build: downloader/
-
+  build: ./downloader/
+mysql:
+  build: ./mysql
