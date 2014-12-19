@@ -5,7 +5,7 @@ app1:
  links:
     - mysql:db
 app2:
-  image: DockerWordpressNginx_app1 
+  image: dockerwordpressnginx_app1 
   volumes_from:
     - downloader
   links:
